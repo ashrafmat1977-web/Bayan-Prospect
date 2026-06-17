@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bayan Prospect — Financial Clarity for Your Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:   #0F1F3D;
+  --navy2:  #162340;
+  --gold:   #BA7517;
+  --gold-l: #EF9F27;
+  --gold-p: #F5EDD8;
+  --teal:   #1D9E75;
+  --teal-d: #0F6E56;
+  --white:  #FFFFFF;
+  --offwh:  #F8F9FA;
+  --lgrey:  #EEF0F3;
+  --mgrey:  #8A95A3;
+  --dkgrey: #2E3A4A;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Figtree', sans-serif;
+  background: var(--offwh);
+  color: var(--navy);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── LOGO SVG ── */
+.logo-svg { width: 180px; height: 44px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.25rem 5vw;
+  background: rgba(15,31,61,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(186,117,23,0.2);
+}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-size: .8rem; font-weight: 500; letter-spacing: .1em;
+  text-transform: uppercase; color: rgba(255,255,255,.55);
+  text-decoration: none; transition: color .2s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  font-size: .8rem; font-weight: 600; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--navy);
+  background: var(--gold); padding: .55rem 1.5rem;
+  border-radius: 2px; text-decoration: none; transition: background .2s;
+}
+.nav-cta:hover { background: var(--gold-l); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: var(--navy);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 8rem 5vw 4rem;
+  gap: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 50%, rgba(29,158,117,.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(186,117,23,.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+/* diagonal gold line decoration -->
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 1px; height: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(186,117,23,.3) 40%, rgba(186,117,23,.3) 60%, transparent);
+}
+
+.hero-mark { display: flex; align-items: center; justify-content: center; }
+.hero-mark svg { width: 100%; max-width: 280px; }
+
+.hero-content { position: relative; z-index: 1; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-size: .72rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.hero-eyebrow::before {
+  content: ''; width: 28px; height: 1px; background: var(--gold);
+}
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 5.5vw, 5.2rem);
+  font-weight: 700; line-height: 1.05;
+  color: var(--white); letter-spacing: -.02em;
+  margin-bottom: 1.5rem;
+}
+h1 em { font-style: italic; color: var(--gold); }
+.hero-desc {
+  font-size: 1.05rem; color: rgba(255,255,255,.6);
+  max-width: 440px; line-height: 1.8; margin-bottom: 2.5rem;
+}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  font-size: .85rem; font-weight: 600; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--navy);
+  background: var(--gold); padding: .9rem 2rem;
+  border-radius: 2px; text-decoration: none; transition: background .2s;
+}
+.btn-primary:hover { background: var(--gold-l); }
+.btn-ghost {
+  font-size: .85rem; font-weight: 500; letter-spacing: .06em;
+  text-transform: uppercase; color: rgba(255,255,255,.6);
+  border: 1px solid rgba(186,117,23,.35); padding: .9rem 2rem;
+  border-radius: 2px; text-decoration: none; transition: all .2s;
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── TRUST BAR ── */
+.trust {
+  background: var(--gold);
+  padding: 1rem 5vw;
+  display: flex; align-items: center; justify-content: center;
+  gap: 2.5rem; flex-wrap: wrap;
+}
+.trust-item {
+  font-size: .78rem; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--navy);
+  display: flex; align-items: center; gap: .5rem;
+}
+.trust-item::before { content: '▸'; font-size: .6rem; }
+
+/* ── SECTIONS ── */
+section { padding: 7rem 5vw; }
+.section-eyebrow {
+  font-size: .72rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--gold);
+  display: block; margin-bottom: 1rem;
+}
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700; line-height: 1.15; letter-spacing: -.01em;
+}
+.section-sub {
+  margin-top: 1rem; font-size: 1rem;
+  color: var(--mgrey); max-width: 540px;
+  line-height: 1.8;
+}
+
+/* ── ABOUT ── */
+#about {
+  background: var(--white);
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: center;
+}
+.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.stat-card {
+  background: var(--offwh);
+  border: .5px solid #DDE1E7;
+  border-radius: 4px; padding: 1.5rem;
+  border-top: 3px solid var(--gold);
+}
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem; font-weight: 700;
+  color: var(--navy); line-height: 1;
+  margin-bottom: .25rem;
+}
+.stat-label { font-size: .8rem; color: var(--mgrey); font-weight: 500; }
+.about-bio p { font-size: 1rem; color: var(--dkgrey); line-height: 1.85; margin-bottom: 1.25rem; }
+.about-bio p:last-child { margin-bottom: 0; }
+.about-bio strong { color: var(--navy); font-weight: 600; }
+
+/* ── SERVICES ── */
+#services { background: var(--navy); }
+#services h2 { color: var(--white); }
+#services .section-sub { color: rgba(255,255,255,.45); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem; margin-top: 3.5rem;
+}
+.svc-card {
+  background: rgba(255,255,255,.04);
+  border: .5px solid rgba(186,117,23,.2);
+  border-radius: 4px; padding: 2rem;
+  transition: background .2s, border-color .2s;
+  position: relative; overflow: hidden;
+}
+.svc-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0;
+  width: 0; height: 2px; background: var(--gold);
+  transition: width .35s;
+}
+.svc-card:hover { background: rgba(255,255,255,.07); border-color: rgba(186,117,23,.5); }
+.svc-card:hover::after { width: 100%; }
+.svc-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem; font-weight: 400;
+  color: rgba(186,117,23,.25); line-height: 1;
+  margin-bottom: .5rem;
+}
+.svc-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 600;
+  color: var(--white); margin-bottom: .75rem;
+}
+.svc-desc { font-size: .9rem; color: rgba(255,255,255,.5); line-height: 1.75; margin-bottom: 1rem; }
+.svc-price { font-size: .8rem; font-weight: 600; color: var(--gold); letter-spacing: .04em; }
+
+/* ── PACKAGES ── */
+#packages { background: var(--offwh); }
+.pkg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem; margin-top: 3.5rem;
+}
+.pkg {
+  background: var(--white);
+  border: .5px solid #DDE1E7;
+  border-radius: 4px; padding: 2.5rem 2rem;
+  position: relative; transition: box-shadow .2s;
+}
+.pkg:hover { box-shadow: 0 12px 40px rgba(15,31,61,.08); }
+.pkg.featured {
+  background: var(--navy);
+  border-color: var(--gold); border-width: 2px;
+}
+.pkg-badge {
+  position: absolute; top: -12px; left: 50%;
+  transform: translateX(-50%);
+  font-size: .68rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; background: var(--gold);
+  color: var(--navy); padding: 4px 16px; border-radius: 2px;
+  white-space: nowrap;
+}
+.pkg-name {
+  font-size: .72rem; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: .75rem;
+}
+.pkg-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem; font-weight: 700;
+  line-height: 1; margin-bottom: .25rem;
+}
+.pkg:not(.featured) .pkg-price { color: var(--navy); }
+.pkg.featured .pkg-price { color: var(--white); }
+.pkg-period { font-size: .82rem; color: var(--mgrey); margin-bottom: 1rem; }
+.pkg.featured .pkg-period { color: rgba(255,255,255,.45); }
+.pkg-note { font-size: .8rem; font-weight: 600; color: var(--teal); margin-bottom: 1.25rem; }
+.pkg-divider { height: .5px; background: #DDE1E7; margin-bottom: 1.25rem; }
+.pkg.featured .pkg-divider { background: rgba(186,117,23,.2); }
+.pkg-features { list-style: none; margin-bottom: 2rem; }
+.pkg-features li {
+  font-size: .88rem; padding: .45rem 0;
+  border-bottom: .5px solid rgba(0,0,0,.04);
+  display: flex; gap: .6rem; align-items: flex-start;
+  color: var(--dkgrey);
+}
+.pkg.featured .pkg-features li { color: rgba(255,255,255,.7); border-color: rgba(255,255,255,.05); }
+.pkg-features li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+.pkg-cta {
+  display: block; text-align: center;
+  font-size: .8rem; font-weight: 600; letter-spacing: .06em;
+  text-transform: uppercase; padding: .85rem;
+  border-radius: 2px; text-decoration: none; transition: all .2s;
+}
+.pkg-cta-outline { border: 1px solid #DDE1E7; color: var(--navy); }
+.pkg-cta-outline:hover { border-color: var(--gold); color: var(--gold); }
+.pkg-cta-solid { background: var(--gold); color: var(--navy); }
+.pkg-cta-solid:hover { background: var(--gold-l); }
+
+/* ── WHY ── */
+#why { background: var(--white); }
+.why-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2rem; margin-top: 3.5rem;
+}
+.why-card {
+  display: flex; gap: 1.25rem;
+  padding: 1.75rem; border: .5px solid #DDE1E7;
+  border-radius: 4px; border-left: 3px solid var(--gold);
+  border-top-left-radius: 0; border-bottom-left-radius: 0;
+  transition: border-color .2s;
+}
+.why-card:hover { border-left-color: var(--teal); }
+.why-icon {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--gold-p); display: flex;
+  align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.why-title { font-size: .95rem; font-weight: 600; color: var(--navy); margin-bottom: .35rem; }
+.why-desc { font-size: .88rem; color: var(--mgrey); line-height: 1.7; }
+
+/* ── INDUSTRIES ── */
+#industries { background: var(--navy); }
+#industries h2 { color: var(--white); }
+.ind-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem; margin-top: 3rem;
+}
+.ind-card {
+  background: rgba(255,255,255,.04);
+  border: .5px solid rgba(186,117,23,.2);
+  border-radius: 4px; padding: 1.5rem 1.25rem;
+  text-align: center; transition: all .2s;
+}
+.ind-card:hover {
+  background: rgba(186,117,23,.08);
+  border-color: rgba(186,117,23,.5);
+  transform: translateY(-3px);
+}
+.ind-icon { font-size: 1.6rem; margin-bottom: .5rem; }
+.ind-name { font-size: .85rem; font-weight: 500; color: rgba(255,255,255,.7); }
+
+/* ── CONTACT ── */
+#contact {
+  background: var(--navy);
+  text-align: center;
+}
+#contact h2 { color: var(--white); }
+#contact .section-sub { margin: 1rem auto 0; color: rgba(255,255,255,.45); }
+.contact-cards {
+  display: flex; gap: 1.25rem; justify-content: center;
+  flex-wrap: wrap; margin-top: 3rem;
+}
+.contact-card {
+  background: rgba(255,255,255,.05);
+  border: .5px solid rgba(186,117,23,.2);
+  border-radius: 4px; padding: 1.75rem 2rem;
+  min-width: 200px; transition: all .2s;
+}
+.contact-card:hover { background: rgba(186,117,23,.08); border-color: var(--gold); }
+.contact-label {
+  font-size: .7rem; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+}
+.contact-val { font-size: 1rem; color: var(--white); }
+
+/* ── FOOTER ── */
+footer {
+  background: #090F1F;
+  padding: 2rem 5vw;
+  display: flex; align-items: center;
+  justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+}
+.footer-copy { font-size: .78rem; color: rgba(255,255,255,.25); }
+.footer-tagline { font-size: .82rem; font-style: italic; color: var(--gold); opacity: .6; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.25rem; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 7rem 1.25rem 3rem; }
+  .hero-mark { display: none; }
+  #about { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  section { padding: 4rem 1.25rem; }
+}
+</style>
+
+<script>
+/* ============================================================
+   BAYAN PROSPECT — PRICE CONFIGURATION
+   Edit the values below to update all prices on the website.
+   Format: "AED X,XXX" or "AED X,XXX – X,XXX"
+   ============================================================ */
+const PRICES = {
+  // Services
+  bookkeeping:   "AED 2,000 – 3,500 / month",
+  corporateTax:  "AED 3,500 – 5,000 / filing",
+  vat:           "AED 1,000 – 1,500 / quarter",
+  payroll:       "AED 900 – 1,200 / month",
+  budget:        "AED 3,500 – 8,000 / project",
+  financial:     "AED 5,500 – 10,000 / month",
+
+  // Packages
+  essentials:    "AED 4,800",
+  business:      "AED 6,500",
+  cfoRetainer:   "AED 9,000",
+
+  // One-off
+  ctFiling:      "AED 3,500 – 5,000",
+  vatReg:        "AED 1,500",
+  feasibility:   "AED 3,000 – 5,000",
+};
+
+// Apply prices when page loads
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll("[data-price]").forEach(el => {
+    const key = el.getAttribute("data-price");
+    if (PRICES[key]) el.textContent = PRICES[key];
+  });
+});
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <svg class="logo-svg" viewBox="0 0 220 44" aria-label="Bayan Prospect">
+    <!-- chevrons compact -->
+    <polygon points="4,4 18,22 4,40 10,40 24,22 10,4" fill="#FFFFFF"/>
+    <polygon points="14,8 24,22 14,36 19,36 29,22 19,8" fill="#BA7517"/>
+    <polygon points="22,12 29,22 22,32 26,32 33,22 26,12" fill="#1D9E75"/>
+    <circle cx="33" cy="22" r="3" fill="#BA7517"/>
+    <!-- wordmark -->
+    <text x="42" y="16" font-family="Georgia,serif" font-size="14" font-weight="700" fill="#FFFFFF" letter-spacing="1">BAYAN</text>
+    <rect x="42" y="18" width="98" height="1.5" fill="#BA7517"/>
+    <text x="42" y="34" font-family="Georgia,serif" font-size="14" font-weight="400" fill="#FFFFFF" letter-spacing="1">PROSPECT</text>
+  </svg>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#why">Why us</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Book a call</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <!-- mark left -->
+  <div class="hero-mark">
+    <svg viewBox="0 0 260 320" aria-hidden="true">
+      <!-- large hero chevrons -->
+      <polygon points="16,16 80,160 16,304 48,304 112,160 48,16" fill="#FFFFFF" opacity=".9"/>
+      <polygon points="68,36 124,160 68,284 96,284 152,160 96,36" fill="#BA7517"/>
+      <polygon points="114,58 160,160 114,262 136,262 182,160 136,58" fill="#1D9E75"/>
+      <!-- tip -->
+      <circle cx="183" cy="160" r="18" fill="#BA7517"/>
+      <circle cx="183" cy="160" r="10" fill="#0F1F3D"/>
+      <circle cx="183" cy="160" r="5" fill="#EF9F27"/>
+    </svg>
+  </div>
+
+  <!-- content right -->
+  <div class="hero-content">
+    <div class="hero-eyebrow">Accounting · Tax · Advisory · Dubai</div>
+    <h1>Financial<br><em>clarity</em> for<br>your business.</h1>
+    <p class="hero-desc">24 years of financial management across Dubai and the GCC. UAE Corporate Tax and VAT specialist. Clean data, accurate books, confident decisions.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Book a free call</a>
+      <a href="#services" class="btn-ghost">Our services</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="trust-item">24 Years Experience</div>
+  <div class="trust-item">UAE Corporate Tax Certified</div>
+  <div class="trust-item">ACCA Qualified</div>
+  <div class="trust-item">VAT & CT Specialist</div>
+  <div class="trust-item">Based in Dubai</div>
+  <div class="trust-item">Arabic & English</div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-bio">
+    <span class="section-eyebrow">About</span>
+    <h2>Ashraf Matahen —<br>Senior expertise.<br>Freelance agility.</h2>
+    <p style="margin-top:1.5rem">I am a UAE Corporate Tax certified accountant and financial management specialist with 24 years of experience — 8 years in Jordan and 16 years in Dubai. I have worked across six industries, managed board-level financial reporting, and built deep expertise in UAE VAT and Corporate Tax law from day one of implementation.</p>
+    <p>I now offer freelance CFO, accounting, and tax services to SMEs and growing businesses across Dubai and the GCC. My clients get Finance Director-level quality at a fraction of the cost of a full-time hire — with no overhead, no delays, and no agency markup.</p>
+  </div>
+  <div class="about-stats">
+    <div class="stat-card">
+      <div class="stat-num">24</div>
+      <div class="stat-label">Years financial management</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">16</div>
+      <div class="stat-label">Years in Dubai</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">6</div>
+      <div class="stat-label">Industries served</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">0%</div>
+      <div class="stat-label">Tax on GCC exports</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div style="max-width:600px">
+    <span class="section-eyebrow">Services</span>
+    <h2 style="color:#fff">Everything your business needs, financially.</h2>
+    <p class="section-sub">From monthly bookkeeping to board-level CFO advisory — delivered with precision, honesty, and clean data every time.</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card">
+      <div class="svc-num">01</div>
+      <div class="svc-title">Bookkeeping & Accounting</div>
+      <p class="svc-desc">Monthly bookkeeping, bank reconciliation, AR/AP management, and IFRS financial statements on Xero or QuickBooks.</p>
+      <div class="svc-price" data-price="bookkeeping">AED 2,000 – 3,500 / month</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">02</div>
+      <div class="svc-title">UAE Corporate Tax</div>
+      <p class="svc-desc">CT registration, taxable income computation, annual return filing via EmaraTax, and QFZP compliance management.</p>
+      <div class="svc-price" data-price="corporateTax">AED 3,500 – 5,000 / filing</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">03</div>
+      <div class="svc-title">VAT Compliance</div>
+      <p class="svc-desc">Quarterly VAT return preparation, FTA portal submission, input tax recovery, and full audit support.</p>
+      <div class="svc-price" data-price="vat">AED 1,000 – 1,500 / quarter</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">04</div>
+      <div class="svc-title">Payroll & WPS</div>
+      <p class="svc-desc">Monthly payroll, WPS file generation, gratuity calculations, and bilingual payslips for your team.</p>
+      <div class="svc-price" data-price="payroll">AED 900 – 1,200 / month</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">05</div>
+      <div class="svc-title">Budget & Financial Planning</div>
+      <p class="svc-desc">Annual budgets, rolling cash flow forecasts, and month-by-month budget vs. actual variance analysis for your board.</p>
+      <div class="svc-price" data-price="budget">AED 3,500 – 8,000 / project</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">06</div>
+      <div class="svc-title">Financial Management</div>
+      <p class="svc-desc">Financial Director on a monthly retainer — investor-ready financials, feasibility studies, and strategic financial oversight.</p>
+      <div class="svc-price" data-price="financial">AED 5,500 – 10,000 / month</div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages">
+  <div style="text-align:center; max-width:560px; margin:0 auto;">
+    <span class="section-eyebrow">Packages</span>
+    <h2>Simple monthly retainers.</h2>
+    <p class="section-sub" style="margin:1rem auto 0">Fixed pricing, no surprises. Cancel with 30 days notice. All packages include onboarding and cloud software access.</p>
+  </div>
+  <div class="pkg-grid">
+    <div class="pkg">
+      <div class="pkg-name">Essentials</div>
+      <div class="pkg-price" data-price="essentials">AED 4,800</div>
+      <div class="pkg-period">per month</div>
+      <div class="pkg-note">Bookkeeping + VAT included</div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-features">
+        <li>Monthly bookkeeping & reconciliation</li>
+        <li>Quarterly VAT return</li>
+        <li>Basic P&L & balance sheet</li>
+        <li>Email support within 24hrs</li>
+      </ul>
+      <a href="#contact" class="pkg-cta pkg-cta-outline">Get started</a>
+    </div>
+    <div class="pkg featured">
+      <div class="pkg-badge">Most popular</div>
+      <div class="pkg-name">Business</div>
+      <div class="pkg-price" data-price="business">AED 6,500</div>
+      <div class="pkg-period">per month</div>
+      <div class="pkg-note">Full compliance + CT + payroll</div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-features">
+        <li>Everything in Essentials</li>
+        <li>Payroll & WPS processing</li>
+        <li>UAE Corporate Tax filing</li>
+        <li>Management accounts</li>
+        <li>Monthly call + WhatsApp</li>
+      </ul>
+      <a href="#contact" class="pkg-cta pkg-cta-solid">Get started</a>
+    </div>
+    <div class="pkg">
+      <div class="pkg-name">Financial Management</div>
+      <div class="pkg-price" data-price="cfoRetainer">AED 9,000</div>
+      <div class="pkg-period">per month</div>
+      <div class="pkg-note">Strategy + compliance + advisory</div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-features">
+        <li>Everything in Business</li>
+        <li>Budget & variance reporting</li>
+        <li>Cash flow & forecasting</li>
+        <li>Investor-ready financials</li>
+        <li>FTA audit representation</li>
+      </ul>
+      <a href="#contact" class="pkg-cta pkg-cta-outline">Get started</a>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:2rem;font-size:.85rem;color:var(--mgrey)">One-off services: CT filing AED 3,500–5,000 · VAT registration AED 1,500 · Feasibility study AED 3,000–5,000</p>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div style="max-width:560px">
+    <span class="section-eyebrow">Why Bayan Prospect</span>
+    <h2>Senior quality.<br>Lean cost.</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">📊</div>
+      <div>
+        <div class="why-title">24 years of real experience</div>
+        <p class="why-desc">8 years in Jordan, 16 years in Dubai. I have seen every financial scenario across six industries — from startup launches to complex restructuring.</p>
+      </div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📋</div>
+      <div>
+        <div class="why-title">UAE tax law mastered</div>
+        <p class="why-desc">Expert in Corporate Tax and VAT from day one of implementation. Accurate returns, FTA correspondence handled, audits managed end-to-end.</p>
+      </div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎯</div>
+      <div>
+        <div class="why-title">Clean data. Every time.</div>
+        <p class="why-desc">Honesty, accuracy, and clean financial data are not values we claim — they are the standard every deliverable is held to. No exceptions.</p>
+      </div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💡</div>
+      <div>
+        <div class="why-title">Budget & variance specialist</div>
+        <p class="why-desc">Board-level budgeting, rolling forecasts, and month-by-month variance analysis — delivered in clear, decision-ready management packs.</p>
+      </div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🌐</div>
+      <div>
+        <div class="why-title">Arabic & English</div>
+        <p class="why-desc">Fully bilingual — all financial documents, reports, and client communication delivered in Arabic or English, whichever your business needs.</p>
+      </div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🏙️</div>
+      <div>
+        <div class="why-title">Dubai-based. GCC-ready.</div>
+        <p class="why-desc">Based in Dubai, serving clients across UAE, Saudi Arabia, and the wider GCC. Same time zone. Same-day response. No middlemen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries">
+  <div style="text-align:center; max-width:520px; margin:0 auto;">
+    <span class="section-eyebrow">Industries</span>
+    <h2 style="color:#fff">Six industries. One standard.</h2>
+  </div>
+  <div class="ind-grid">
+    <div class="ind-card"><div class="ind-icon">🏨</div><div class="ind-name">Hospitality</div></div>
+    <div class="ind-card"><div class="ind-icon">🏗️</div><div class="ind-name">Construction</div></div>
+    <div class="ind-card"><div class="ind-icon">🛒</div><div class="ind-name">Trading</div></div>
+    <div class="ind-card"><div class="ind-icon">💊</div><div class="ind-name">Pharmaceutical</div></div>
+    <div class="ind-card"><div class="ind-icon">📺</div><div class="ind-name">Media & Advertising</div></div>
+    <div class="ind-card"><div class="ind-icon">🤝</div><div class="ind-name">Professional Services</div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <span class="section-eyebrow" style="display:block;text-align:center">Get in touch</span>
+  <h2>Ready to bring clarity<br>to your finances?</h2>
+  <p class="section-sub">Book a free 20-minute call. I will assess your situation and tell you exactly what your business needs — no commitment required.</p>
+  <div class="contact-cards">
+    <div class="contact-card">
+      <div class="contact-label">Email</div>
+      <div class="contact-val">admin@bayanprospect.com</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-label">Website</div>
+      <div class="contact-val">bayanprospect.com</div>
+    </div>
+
+  </div>
+  <p style="margin-top:2rem;font-size:.8rem;color:rgba(255,255,255,.25)">Based in Dubai, UAE · Available Sat–Thu · Response within 2 hours</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <svg width="140" height="32" viewBox="0 0 220 44" aria-label="Bayan Prospect">
+    <polygon points="4,4 18,22 4,40 10,40 24,22 10,4" fill="rgba(255,255,255,.3)"/>
+    <polygon points="14,8 24,22 14,36 19,36 29,22 19,8" fill="rgba(186,117,23,.6)"/>
+    <polygon points="22,12 29,22 22,32 26,32 33,22 26,12" fill="rgba(29,158,117,.6)"/>
+    <text x="42" y="15" font-family="Georgia,serif" font-size="12" fill="rgba(255,255,255,.3)" letter-spacing="1">BAYAN</text>
+    <text x="42" y="32" font-family="Georgia,serif" font-size="12" fill="rgba(255,255,255,.3)" letter-spacing="1">PROSPECT</text>
+  </svg>
+  <div class="footer-tagline">Financial clarity for your business.</div>
+  <div class="footer-copy">© 2026 Bayan Prospect · Dubai, UAE</div>
+</footer>
+
+</body>
+</html>
